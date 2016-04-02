@@ -1,2 +1,2 @@
-# cs-cart-shopwave
-Cs-cart Shopwave connector
+# cs-cart-shopify
+Cs-cart Shopify syncing app 
