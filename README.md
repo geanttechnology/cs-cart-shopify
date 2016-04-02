@@ -1,2 +1,2 @@
 # cs-cart-shopify
-Cs-cart Shopify syncing app 
+Cs-cart Shopify syncing addon
