@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<addon scheme="3.0">
+    <id>shopify</id>
+    <status>active</status>
+    <version>1.0</version>
+    <priority>4000</priority>
+    <position>4000</position>
+    <default_language>en</default_language>
+    <queries>
+        <item>DROP TABLE IF EXISTS ?:shopify_options;</item>
+        <item>DROP TABLE IF EXISTS ?:shopify_products;</item>
+        <item>
+            CREATE TABLE `?:shopify_options` (
+              `product_id` mediumint unsigned NOT NULL,
+              `option_id` int(11) NOT NULL,
+              `name` varchar(64) NOT NULL,
+              `s_option` char(7) NOT NULL,              
+              PRIMARY KEY (`product_id`, `option_id`)
+            ) Engine=MyISAM DEFAULT CHARSET UTF8;
+        </item>
+        <item>
+            CREATE TABLE `?:shopify_products` (
+              `product_id` mediumint unsigned NOT NULL,
+              `s_product_id` bigint unsigned NOT NULL,
+              `s_variant_id` bigint unsigned NOT NULL,
+              `option1` varchar(64) NOT NULL,
+              `option2` varchar(64) NOT NULL,
+              `option3` varchar(64) NOT NULL,
+              `timestamp` int unsigned NOT NULL,
+              `updated_timestamp` int unsigned NOT NULL,
+              PRIMARY KEY (`product_id`, `s_product_id`, `s_variant_id`)
+            ) Engine=MyISAM DEFAULT CHARSET UTF8;
+        </item>        
+        <item for="uninstall">DROP TABLE IF EXISTS ?:shopify_options;</item>
+        <item for="uninstall">DROP TABLE IF EXISTS ?:shopify_products;</item>
+    </queries>    
+</addon>
